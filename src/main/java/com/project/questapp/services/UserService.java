@@ -3,16 +3,17 @@ package com.project.questapp.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.questapp.entites.User;
 import com.project.questapp.repos.UserRepository;
 
 @Service
-
 public class UserService {
 	UserRepository userRepository;
 
+	@Autowired
 	public UserService(UserRepository userRepository) {
 		super();
 		this.userRepository = userRepository;
@@ -45,5 +46,9 @@ public class UserService {
 
 	public void deleteById(Long userId) {
 		userRepository.deleteById(userId);	
+	}
+
+	public User getOneUserByUserName(String userName) {
+		return userRepository.findByUserName(userName);
 	}
 }

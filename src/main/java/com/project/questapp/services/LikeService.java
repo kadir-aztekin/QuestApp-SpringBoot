@@ -1,9 +1,11 @@
 package com.project.questapp.services;
 
 import java.util.List;
+
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.questapp.entites.Like;
@@ -21,7 +23,8 @@ public class LikeService {
 	private LikeRepository likeRepository;
 	private UserService userService;
 	private PostService postService;
-
+	
+	@Autowired
 	public LikeService(LikeRepository likeRepository, UserService userService, 
 			PostService postService) {
 		this.likeRepository = likeRepository;

@@ -3,6 +3,7 @@ package com.project.questapp.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.questapp.entites.Comment;
@@ -17,7 +18,7 @@ public class CommentService {
 	private CommentRepository commentRepository;
 	private UserService userService;
 	private PostService postService;
-	
+	@Autowired
 	public CommentService(CommentRepository commentRepository,UserService userService,PostService postService) {
 		this.commentRepository = commentRepository;
 		this.postService= postService;

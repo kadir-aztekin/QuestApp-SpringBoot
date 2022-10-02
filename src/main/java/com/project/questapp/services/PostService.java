@@ -1,14 +1,15 @@
 package com.project.questapp.services;
-import java.util.Date;
+
 
 import java.util.List;
+
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import com.project.questapp.entites.Like;
 import com.project.questapp.entites.Post;
 import com.project.questapp.entites.User;
 import com.project.questapp.repos.PostRepository;
@@ -16,7 +17,7 @@ import com.project.questapp.requests.PostCreateRequest;
 import com.project.questapp.requests.PostUpdateRequest;
 import com.project.questapp.response.LikeResponse;
 import com.project.questapp.response.PostResponse;
-import com.project.questapp.services.LikeService;;
+
 
 
 @Service
@@ -27,13 +28,13 @@ public class PostService {
 	private UserService userService;
 	
 	@Autowired
-	public PostService(PostRepository postRepository,
-			UserService userService,LikeService likeService) {
+
+	public PostService( PostRepository postRepository,
+			 UserService userService) {
 		this.postRepository = postRepository;
 		this.userService = userService;
 		
 	}
-	
 	public void setLikeService(LikeService likeService) {
 		this.likeService=likeService;	
 	}
